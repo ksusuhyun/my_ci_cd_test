@@ -60,9 +60,5 @@ jobs:
         run:  aws s3 cp --region ap-northeast-2 ./app.zip s3://pusan007-deploy-bucket/deploy/
 
       - name: AWS codeDeploy 서비스 절차에 따라 배포 시작
-        run:  aws deploy create-deployment 
-          --application-name pusan-code-deploy 
-          --deployment-config-name CodeDeployDefault.OneAtATime
-          --deployment-group-name dev
-          --s3-location bucket=pusan007-deploy-bucket,bundleType=zip,key=deploy/app.zip
+        run:  aws deploy create-deployment --application-name pusan-code-deploy --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name dev --s3-location bucket=pusan007-deploy-bucket,bundleType=zip,key=deploy/app.zip
 
